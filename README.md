@@ -25,10 +25,24 @@ To implement MESSAGE AUTHENTICATION CODE(MAC)
 5. Security: The security of the MAC relies on the secret key \( K \) and the strength of the hash function \( H \), ensuring that an attacker cannot forge a valid MAC without knowledge of the key.
 
 ## Program:
+```python
+def mac(message, key):
+    data = message + key
+    total = 0
+    for c in data:
+        total += ord(c)
+    return total % 256   # checksum
 
+message = input("Enter message: ")
+key = input("Enter secret key: ")
 
+tag = mac(message, key)
 
+print("\nMAC Tag:", tag)
+
+```
 ## Output:
+<img width="338" height="235" alt="image" src="https://github.com/user-attachments/assets/da21c7b7-9e8d-4600-bc6f-956bfc4b4380" />
 
 
 ## Result:
